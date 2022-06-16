@@ -1,11 +1,20 @@
-import { View, TextInput, Button, StyleSheet } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, TextInput, Button, StyleSheet, FlatList, Text } from 'react-native'
+import FilmItem from './FilmItem.js';
+import films from '../Helpers/filmData.js';
 
+ 
 const Search = () => {
   return (
     <View style={styles.main_container}>
       <TextInput placeholder='Titre du film...' style={styles.textinput}/>
       <Button style={{height: 70}} title='Rechercher' onPress={()=>{}}/>
+      <FlatList
+        data={films}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({item}) => <FilmItem/>}
+        />
+
     </View>
   )
 }
